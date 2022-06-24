@@ -1,0 +1,105 @@
+*{
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.flex-container{
+    display: flex;
+    max-width: 80%;
+    margin: auto;
+    min-width: 320px;
+    flex-direction: column;
+}
+
+h1{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom:20px;
+    font-size: 4rem;
+    color: #1b1919;
+}
+
+.botoes{
+    display: flex;
+    max-width: 60%;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.carta img{
+    width: 14vh;
+    height: 14vh;
+    margin: 0.5rem;
+    border: #1b1919 1px solid;
+    border-radius: 10%;
+    padding: 0.8rem;
+    background-color: #E4E5E7;
+}
+
+.carta{
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.carta:active{
+    transform: scale(0.97);
+    transition: .2s;
+}
+
+.frente{
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.verso{
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.carta.virar{
+    transform: rotateY(180deg);
+}
+
+.flex-container button{
+    border-radius: 40px;
+	font-size: 1.5rem;
+	height: 60px;
+	width: 300px;
+	border: none;
+    margin: 1.5rem;
+    background-color: #585353;
+    color: #e5e8e8;
+	transition: all 0.5s linear;
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+.resultado{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    font-size: 2rem;
+    align-items: center;
+    margin-top: 10vh;
+    line-height: 3rem;
+}
+
+#botao-recorde{
+    margin-top: 5vh;
+    font-size: 1.5rem;
+}
+
+#tempo-recorde{
+    font-size: 1.5rem;
+    margin-bottom: 5vh;
+}
+
+.esconder{
+    display: none;
+}
