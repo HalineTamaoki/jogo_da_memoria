@@ -10,18 +10,10 @@ let seg = 0
 let min = 0
 let cron;
 let recorde=0
-let primeiraCartaCron = false //cronometro ativa só com a primeira carta do jogo
-
 
 //inicia o cronometro//
-if (primeiraCartaCron){
+cron=setInterval(()=>{cronometro();console.log(seg)},1000)
 cartas.forEach(card => card.addEventListener('click',virarCarta))
-}
-
-else {
-    cron=setInterval(()=>{cronometro();console.log(seg)},1000)
-    cartas.forEach(card => card.addEventListener('click',virarCarta))
-}
 
 //Ativa os botoes//
 function virarCarta(){
@@ -90,7 +82,6 @@ function novoJogo(){
 
     //falar tempo
     clearInterval(cron);
-    primeiraCartaCron=false
     let tempoFinal=(min==0?"":min)+(min==0?"":"min")+seg+"seg";
     document.getElementById('tempo-nesse-jogo').innerHTML=tempoFinal
 
@@ -113,15 +104,8 @@ function voltarInicio(){
     document.getElementsByClassName('botoes')[0].classList.remove('esconder');
     seg=0
     min=0
-
-    if (primeiraCartaCron){
-        cartas.forEach(card => card.addEventListener('click',virarCarta))
-        }
-        
-        else {
-            cron=setInterval(()=>{cronometro();console.log(seg)},1000)
-            cartas.forEach(card => card.addEventListener('click',virarCarta))
-        }
+    cron=setInterval(()=>{cronometro();console.log(seg)},1000)
+    cartas.forEach(card => card.addEventListener('click',virarCarta))
 }
 
 //Embaralha as cartas para um novo jogo//
@@ -134,8 +118,6 @@ function embaralhar(){
 
 //Ativa o cronomêtro//
 function cronometro(){
-    primeiraCartaCron=true
-
     seg++;
 
     if (seg==60){
